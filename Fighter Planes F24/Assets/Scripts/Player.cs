@@ -57,9 +57,7 @@ public class Player : MonoBehaviour
 
     public void LoseALife()
     {
-        //lives = lives - 1;
-        //lives -= 1;
-        lives--;
+        lives = lives - 1;
         if (lives == 0)
         {
             Instantiate(explosion, transform.position, Quaternion.identity);

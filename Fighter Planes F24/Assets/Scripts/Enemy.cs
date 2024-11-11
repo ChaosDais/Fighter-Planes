@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour
         if (whatDidIHit.tag == "Player")
         {
             GameObject.Find("Player(Clone)").GetComponent<Player>().LoseALife();
+            GameObject.Find("GameManager").GetComponent<GameManager>().LivesLeft();
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         } else if (whatDidIHit.tag == "Weapon")

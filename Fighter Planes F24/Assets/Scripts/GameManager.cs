@@ -6,14 +6,15 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-
     public GameObject player;
     public GameObject enemy;
     public GameObject cloud;
     public GameObject coin;
     private int score;
-
+    private int lives;
+    
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI livesText;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +24,9 @@ public class GameManager : MonoBehaviour
         CreateSky();
         InvokeRepeating("CreateCoin", 2f, 4f);
         score = 0;
+        lives = 3;
         scoreText.text = "Score: " + score;
+        livesText.text = "Lives: " + lives;
     }
 
     // Update is called once per frame
@@ -56,4 +59,9 @@ public class GameManager : MonoBehaviour
         scoreText.text = "Score: " + score;
     }
 
+    public void LivesLeft() 
+    {  
+        lives = lives - 1; 
+        livesText.text = "Lives: " + lives;
+    }
 }
