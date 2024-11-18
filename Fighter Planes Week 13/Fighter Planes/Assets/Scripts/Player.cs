@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     public GameObject bullet;
     public GameObject explosion;
     public GameObject thruster;
+    public GameObject shield;
 
     // Start is called before the first frame update
     void Start()
@@ -82,8 +83,9 @@ public class Player : MonoBehaviour
             lives--;
         } else if (hasShield == true)
         {
-            //lose the shield
-            //no longer have a shield
+            shield.gameObject.SetActive(false);
+            hasShield = false;
+            gameManager.UpdatePowerupText("");
         }
 
         if (lives == 0)
@@ -139,6 +141,7 @@ public class Player : MonoBehaviour
                 case 4:
                     //shield
                     gameManager.UpdatePowerupText("Picked up Shield!");
+                    shield.gameObject.SetActive(true);
                     hasShield = true;
                     break;
             }
